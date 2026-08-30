@@ -5,8 +5,8 @@ BINARY=cubieboard2-exporter
 test:
 	go test -v
 
-build: test
-	GOOS=linux GOARCH=arm GOARM=7 go build -o $(BINARY) .
+build:	test
+	GOOS=linux GOARCH=arm GOARM=7 go build -ldflags="-s -w" -o $(BINARY) .
 
 clean:
 	rm -f $(BINARY)
